@@ -21,18 +21,12 @@ The application allows you to select a specific ligand and a parameter of intere
 The data used in this application comes from [BindingDB](https://www.bindingdb.org/bind/index.jsp).
 """)
 
-parameter = st.selectbox(
-    "Parameter",
-    os.listdir(PATH)
-)
+parameter = st.selectbox("Parameter", os.listdir(PATH))
 
 ligand_names = os.listdir(os.path.join(PATH, parameter))
 ligand_names = [ligand_name.split(".")[0] for ligand_name in ligand_names]
 
-ligand = st.selectbox(
-    "Ligand",
-    ligand_names
-)
+ligand = st.selectbox("Ligand", ligand_names)
 
 path_to_json = os.path.join(PATH, parameter, ligand + ".json")
 
